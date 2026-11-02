@@ -1,0 +1,13 @@
+target/
+node_modules/
+.next/
+out/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+**/credentials/
+.near-credentials/
+submission*.json
+.DS_Store
