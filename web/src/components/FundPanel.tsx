@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { ESCROW_CONTRACT, MAINNET_ESCROW_FOR_QUOTES, NETWORK, USDC_CONTRACT, USDC_NEAR_ASSET } from "@/config";
+import { ESCROW_CONTRACT, MAINNET_ESCROW_FOR_QUOTES, NETWORK, ONECLICK_MIN_USD, USDC_CONTRACT, USDC_NEAR_ASSET } from "@/config";
 import { ONE_YOCTO, TGAS, useEscrow } from "@/lib/near";
 import { formatUsdc } from "@/lib/format";
 import {
@@ -171,6 +171,11 @@ function AnyChainFund({ deal, remaining, onChange }: { deal: Deal; remaining: st
         <div className="callout callout-warn small" style={{ marginBottom: 12 }}>
           NEAR Intents runs on mainnet only. On this testnet demo you can fetch a real <b>dry-run</b> quote from the
           1-Click API; no deposit address is issued and nothing moves.
+        </div>
+      )}
+      {BigInt(remaining) < BigInt(ONECLICK_MIN_USD) * BigInt(1_000_000) && (
+        <div className="callout callout-warn small" style={{ marginBottom: 12 }}>
+          1-Click currently has a minimum swap of about ${ONECLICK_MIN_USD}; this deal needs less than that, so pay it directly in USDC.
         </div>
       )}
       <div className="field">

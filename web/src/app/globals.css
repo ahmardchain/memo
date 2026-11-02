@@ -64,7 +64,7 @@ code, .mono { font-family: var(--mono); font-size: 0.9em; word-break: break-all;
 /* header */
 .header { border-bottom: 1px solid var(--line); background: var(--surface); position: sticky; top: 0; z-index: 10; }
 .header-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 12px; }
-.brand { font-weight: 800; font-size: 20px; text-decoration: none; display: flex; align-items: center; gap: 8px; }
+.brand { font-weight: 800; font-size: 20px; white-space: nowrap; text-decoration: none; display: flex; align-items: center; gap: 8px; }
 .brand-mark { width: 26px; height: 26px; border-radius: 8px; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; font-size: 14px; }
 .nav { display: flex; gap: 8px; align-items: center; }
 .net { font-size: 12px; padding: 2px 8px; border-radius: 99px; background: var(--warn-soft); color: var(--warn); font-weight: 600; text-transform: uppercase; }
@@ -84,7 +84,7 @@ main { padding: 28px 0 80px; }
 .center { text-align: center; }
 
 /* buttons */
-.btn { appearance: none; border: 1px solid var(--line); background: var(--surface); color: var(--ink); padding: 10px 16px; border-radius: 10px; font-weight: 600; font-size: 15px; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; justify-content: center; }
+.btn { appearance: none; border: 1px solid var(--line); background: var(--surface); color: var(--ink); padding: 10px 16px; border-radius: 10px; font-weight: 600; font-size: 15px; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; justify-content: center; white-space: nowrap; }
 .btn:hover { background: var(--surface-2); }
 .btn:disabled { opacity: 0.5; cursor: not-allowed; }
 .btn-primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }

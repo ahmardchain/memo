@@ -32,6 +32,11 @@ export const ONECLICK_JWT = process.env.NEXT_PUBLIC_ONECLICK_JWT || "";
 /** 1-Click asset id for native USDC on NEAR (mainnet only — Intents has no testnet). */
 export const USDC_NEAR_ASSET =
   "nep141:17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1";
-/** Escrow used as the recipient when previewing 1-Click quotes from a testnet build. */
-export const MAINNET_ESCROW_FOR_QUOTES =
-  process.env.NEXT_PUBLIC_MAINNET_ESCROW_CONTRACT || DEFAULTS.mainnet.escrow;
+/**
+ * Recipient used for dry-run 1-Click quotes from a testnet build. 1-Click rejects
+ * recipients that don't exist on mainnet, so fall back to a well-known account
+ * until the mainnet escrow is deployed.
+ */
+export const MAINNET_ESCROW_FOR_QUOTES = process.env.NEXT_PUBLIC_MAINNET_ESCROW_CONTRACT || "intents.near";
+/** 1-Click currently enforces a minimum swap size (observed: $100, Nov 2026). */
+export const ONECLICK_MIN_USD = 100;

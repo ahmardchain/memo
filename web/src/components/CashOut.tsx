@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { NETWORK, USDC_CONTRACT, USDC_NEAR_ASSET } from "@/config";
+import { MAINNET_ESCROW_FOR_QUOTES, NETWORK, ONECLICK_MIN_USD, USDC_CONTRACT, USDC_NEAR_ASSET } from "@/config";
 import { ONE_YOCTO, TGAS, useEscrow } from "@/lib/near";
 import { formatUsdc, parseUsdc } from "@/lib/format";
 import {
@@ -84,7 +84,7 @@ export function CashOut() {
         amount: units,
         recipient,
         recipientType: "DESTINATION_CHAIN",
-        refundTo: live ? accountId : "memo-escrow.near",
+        refundTo: live ? accountId : MAINNET_ESCROW_FOR_QUOTES,
         refundType: "ORIGIN_CHAIN",
         deadline: new Date(Date.now() + 30 * 60 * 1000).toISOString(),
         referral: "memo",
@@ -131,6 +131,7 @@ export function CashOut() {
           Mainnet only. On testnet you can preview a real dry-run quote; nothing moves.
         </div>
       )}
+      <p className="hint">1-Click currently has a minimum swap of about ${ONECLICK_MIN_USD}.</p>
       <div className="grid2">
         <div className="field">
           <label htmlFor="dest">Receive as</label>
